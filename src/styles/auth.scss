@@ -34,14 +34,14 @@ aside{
   }
 }
 
-main{
+.main{
+  
   flex: 8;
-
   padding: 0 32px;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .main-content{

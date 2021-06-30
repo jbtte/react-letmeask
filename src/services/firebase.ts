@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 
 import 'firebase/auth';
 import 'firebase/database';
@@ -11,12 +11,12 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASURMENT_ID
+  measurementId: process.env.REACT_APP_MEASURMENT_ID,
 };
 
-firebase.initializeApp(firebaseConfig) 
+firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const database = firebase.database();
 
-export { firebase, auth, database }
+export { firebase, auth, database };

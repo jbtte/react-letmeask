@@ -5,6 +5,7 @@
     },
     "extends": [
       "airbnb-typescript",
+      "prettier",
       "eslint:recommended",
       "plugin:react/recommended"
     ],
@@ -22,7 +23,8 @@
       "jsx-a11y",
       "import",
       "@typescript-eslint",
-      "@babel"
+      "@babel",
+      "prettier"
     ],
     "rules": {
       "react/react-in-jsx-scope": "off",
@@ -42,6 +44,7 @@
            "ignoreFunctionalComponents": false
            }
           ],
-          "react/jsx-props-no-spreading": "off"
+          "react/jsx-props-no-spreading": "off",
+          "prettier/prettier": "error"
     }
 }

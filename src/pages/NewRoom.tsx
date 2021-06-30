@@ -1,39 +1,42 @@
-import { FormEvent, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { FormEvent, useState } from "react"
+import { Link, useHistory } from "react-router-dom"
 // import { AuthContext } from '../contexts/AuthContext'
 
-import illustraitionImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
-import { Button } from '../components/Button';
-import { database } from '../services/firebase';
-import { useAuth } from '../hooks/useAuth';
+import illustraitionImg from "../assets/images/illustration.svg"
+import logoImg from "../assets/images/logo.svg"
+import { Button } from "../components/Button"
+import { database } from "../services/firebase"
+import { useAuth } from "../hooks/useAuth"
 
-import '../styles/auth.scss';
+import "../styles/auth.scss"
 
 export function NewRoom() {
-  const { user } = useAuth();
-  const history = useHistory();
-  const [newRoom, setNewRoom] = useState('');
+  const { user } = useAuth()
+  const history = useHistory()
+  const [newRoom, setNewRoom] = useState("")
 
-  async function handleCreateRoom(event:FormEvent) {
-    event.preventDefault();
-    if (newRoom.trim() === '') {
-      return;
+  async function handleCreateRoom(event: FormEvent) {
+    event.preventDefault()
+    if (newRoom.trim() === "") {
+      return
     }
 
-    const roomRef = database.ref('rooms');
+    const roomRef = database.ref("rooms")
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
-    });
+    })
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    history.push(`/rooms/${firebaseRoom.key}`)
   }
 
   return (
     <div id="page-auth">
       <aside>
-        <img src={illustraitionImg} alt="Ilustração simbolizando perguntas e respostas" />
+        <img
+          src={illustraitionImg}
+          alt="Ilustração simbolizando perguntas e respostas"
+        />
         <strong>Crie salas de Q&amp;A ao vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
@@ -48,17 +51,14 @@ export function NewRoom() {
               onChange={(event) => setNewRoom(event.target.value)}
               value={newRoom}
             />
-            <Button type="submit">
-              Criar sala
-            </Button>
+            <Button type="submit">Criar sala</Button>
           </form>
           <p>
-            Quer entrar em uma sala já existente?
-            {' '}
+            Quer entrar em uma sala já existente?{" "}
             <Link to="/">Clique aqui</Link>
           </p>
         </div>
       </main>
     </div>
-  );
+  )
 }

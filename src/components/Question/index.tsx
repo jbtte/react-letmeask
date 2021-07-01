@@ -1,18 +1,20 @@
-import { ReactNode } from 'react';
-import cx from 'classnames';
+import { ReactNode } from "react"
+import cx from "classnames"
 
-import './styles.scss';
+// import "./styles.scss"
+
+import { QuestionStyle } from "./styles"
 
 type QuestionsProps = {
-  content: string;
+  content: string
   author: {
-    name: string;
+    name: string
     avatar: string
-  };
-  children?: ReactNode;
-  isAnswered?: boolean;
-  isHighlighted?: boolean;
-};
+  }
+  children?: ReactNode
+  isAnswered?: boolean
+  isHighlighted?: boolean
+}
 
 export function Question({
   content,
@@ -22,11 +24,12 @@ export function Question({
   isAnswered = false,
 }: QuestionsProps) {
   return (
-    <div className={cx(
-      'question',
-      { answered: isAnswered },
-      { highlighted: isHighlighted && !isAnswered },
-    )}
+    <QuestionStyle
+      className={cx(
+        "question",
+        { answered: isAnswered },
+        { highlighted: isHighlighted && !isAnswered }
+      )}
     >
       <p>{content}</p>
       <footer>
@@ -34,10 +37,8 @@ export function Question({
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </div>
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
       </footer>
-    </div>
-  );
+    </QuestionStyle>
+  )
 }

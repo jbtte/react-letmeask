@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-// import { AuthContext } from '../contexts/AuthContext'
 
 import illustraitionImg from "../assets/images/illustration.svg"
 import logoImg from "../assets/images/logo.svg"
@@ -8,7 +7,12 @@ import { Button } from "../components/Button/index"
 import { database } from "../services/firebase"
 import { useAuth } from "../hooks/useAuth"
 
-import "../styles/auth.scss"
+import {
+  PageAuthStyle,
+  AsideStyle,
+  MainStyle,
+  MainContentStyle,
+} from "../styles/auth"
 
 export function NewRoom() {
   const { user } = useAuth()
@@ -31,17 +35,17 @@ export function NewRoom() {
   }
 
   return (
-    <div id="page-auth">
-      <aside>
+    <PageAuthStyle id="page-auth">
+      <AsideStyle>
         <img
           src={illustraitionImg}
           alt="Ilustração simbolizando perguntas e respostas"
         />
         <strong>Crie salas de Q&amp;A ao vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
-      <main className="main">
-        <div className="main-content">
+      </AsideStyle>
+      <MainStyle className="main">
+        <MainContentStyle className="main-content">
           <img src={logoImg} alt="Let Me Ask logo" />
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
@@ -57,8 +61,8 @@ export function NewRoom() {
             Quer entrar em uma sala já existente?{" "}
             <Link to="/">Clique aqui</Link>
           </p>
-        </div>
-      </main>
-    </div>
+        </MainContentStyle>
+      </MainStyle>
+    </PageAuthStyle>
   )
 }

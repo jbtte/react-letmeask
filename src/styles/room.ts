@@ -1,7 +1,9 @@
-#page-room{
+import styled from "styled-components"
+
+export const RoomPageStyle = styled.div`
   header {
     padding: 24px;
-    border-bottom: 1px solid #e2e2e2
+    border-bottom: 1px solid #e2e2e2;
   }
 
   .content {
@@ -11,22 +13,21 @@
     justify-content: space-between;
     align-items: center;
 
-     img{
+    img {
       max-height: 40px;
     }
 
-    >div{
+    > div {
       display: flex;
       gap: 16px;
 
-      button{
+      button {
         height: 40px;
       }
     }
   }
-}
-
-.main-room {
+`
+export const MainRoomStyle = styled.main`
   max-width: 800px;
   margin: 0 auto;
 
@@ -36,7 +37,7 @@
     align-items: center;
 
     h1 {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       font-size: 24px;
       color: #29292e;
     }
@@ -46,7 +47,7 @@
       background: #e559f9;
       border-radius: 999px;
       padding: 8px 16px;
-      color: #FFF;
+      color: #fff;
       font-weight: 500;
       font-size: 14px;
     }
@@ -54,10 +55,11 @@
 
   .question-list {
     margin-top: 32px;
+    margin-bottom: 24px;
   }
 
-  form{
-    textarea{
+  form {
+    textarea {
       width: 100%;
       border: 0;
       padding: 16px;
@@ -73,18 +75,18 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 16px;
-      
-      .user-info{
+
+      .user-info {
         display: flex;
         align-items: center;
 
-        img{
+        img {
           width: 32px;
           height: 32px;
           border-radius: 50%;
         }
 
-        span{
+        span {
           margin-left: 8px;
           color: #29292e;
           font-weight: 500;
@@ -99,13 +101,12 @@
         button {
           background: transparent;
           border: 0;
-          color :#835AFD;
+          color: #835afd;
           text-decoration: underline;
           font-size: 14px;
           font-weight: 500;
         }
       }
-
     }
   }
-}
+`

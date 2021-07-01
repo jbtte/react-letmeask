@@ -8,7 +8,15 @@ import googleIconImg from "../assets/images/google-icon.svg"
 import { Button } from "../components/Button/index"
 import { useAuth } from "../hooks/useAuth"
 
-import "../styles/auth.scss"
+import {
+  PageAuthStyle,
+  AsideStyle,
+  MainStyle,
+  MainContentStyle,
+  CreateRoomStyle,
+  SeparatorStyle,
+} from "../styles/auth"
+
 import { database } from "../services/firebase"
 
 export function Home() {
@@ -46,27 +54,29 @@ export function Home() {
   }
 
   return (
-    <div id="page-auth">
-      <aside>
+    <PageAuthStyle id="page-auth">
+      <AsideStyle>
         <img
           src={illustraitionImg}
           alt="Ilustração simbolizando perguntas e respostas"
         />
         <strong>Crie salas de Q&amp;A ao vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
-      <main className="main">
-        <div className="main-content">
+      </AsideStyle>
+      <MainStyle className="main">
+        <MainContentStyle className="main-content">
           <img src={logoImg} alt="Let Me Ask logo" />
-          <button
+          <CreateRoomStyle
             type="button"
             onClick={handleCreateRoom}
             className="create-room"
           >
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o Google
-          </button>
-          <div className="separator">ou entre em uma sala</div>
+          </CreateRoomStyle>
+          <SeparatorStyle className="separator">
+            ou entre em uma sala
+          </SeparatorStyle>
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
@@ -76,8 +86,8 @@ export function Home() {
             />
             <Button type="submit">Entrar na sala</Button>
           </form>
-        </div>
-      </main>
-    </div>
+        </MainContentStyle>
+      </MainStyle>
+    </PageAuthStyle>
   )
 }

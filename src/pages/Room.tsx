@@ -7,7 +7,8 @@ import { Button } from "../components/Button/index"
 import { RoomCode } from "../components/RoomCode/index"
 import { Question } from "../components/Question/index"
 
-import "../styles/room.scss"
+import { RoomPageStyle, MainRoomStyle } from "../styles/room"
+
 import { database } from "../services/firebase"
 import { useRoom } from "../hooks/useRoom"
 
@@ -65,7 +66,7 @@ export function Room() {
   }
 
   return (
-    <div id="page-room">
+    <RoomPageStyle id="page-room">
       <header>
         <div className="content">
           <Link to="/">
@@ -74,7 +75,7 @@ export function Room() {
           <RoomCode code={roomId} />
         </div>
       </header>
-      <main className="main-room">
+      <MainRoomStyle className="main-room">
         <div className="room-title">
           <h1>{title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
@@ -144,7 +145,7 @@ export function Room() {
             </Question>
           ))}
         </div>
-      </main>
-    </div>
+      </MainRoomStyle>
+    </RoomPageStyle>
   )
 }

@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 
 import logoImg from "../assets/images/logo.svg"
-import { Button } from "../components/Button"
-import { RoomCode } from "../components/RoomCode"
+import { Button } from "../components/Button/index"
+import { RoomCode } from "../components/RoomCode/index"
 import { Question } from "../components/Question/index"
 
 import "../styles/room.scss"

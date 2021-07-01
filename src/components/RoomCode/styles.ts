@@ -1,8 +1,10 @@
-.room-code {
+import styled from "styled-components"
+
+export const RoomCodeStyle = styled.button`
   height: 40px;
   border-radius: 8px;
   overflow: hidden;
-  background: #FFF;
+  background: #fff;
   border: 1px solid #835afd;
   cursor: pointer;
   display: flex;
@@ -16,13 +18,13 @@
     height: 100%;
   }
 
-  span{
+  span {
     display: block;
     align-self: center;
     flex: 1;
     padding: 0 16px 0 12px;
     width: 230px;
     font-size: 14px;
-    font-weight: 500; 
+    font-weight: 500;
   }
-}
+`

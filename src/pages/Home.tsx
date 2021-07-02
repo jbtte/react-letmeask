@@ -1,6 +1,9 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useState, useContext } from "react"
 import { useHistory } from "react-router-dom"
+import { ThemeContext } from "styled-components"
+import { shade } from "polished"
 
+import Switch from "react-switch"
 import illustraitionImg from "../assets/images/illustration.svg"
 import logoImg from "../assets/images/logo.svg"
 import googleIconImg from "../assets/images/google-icon.svg"
@@ -11,7 +14,9 @@ import { useAuth } from "../hooks/useAuth"
 import {
   PageAuthStyle,
   AsideStyle,
+  ToggleStyle,
   MainStyle,
+  MainDivStyle,
   MainContentStyle,
   CreateRoomStyle,
   SeparatorStyle,
@@ -23,6 +28,7 @@ export function Home() {
   const history = useHistory()
   const { user, signInWithGoogle } = useAuth()
   const [roomCode, setRoomCode] = useState("")
+  const { colors } = useContext(ThemeContext)
 
   async function handleCreateRoom() {
     if (!user) {
@@ -64,29 +70,45 @@ export function Home() {
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </AsideStyle>
       <MainStyle className="main">
-        <MainContentStyle className="main-content">
-          <img src={logoImg} alt="Let Me Ask logo" />
-          <CreateRoomStyle
-            type="button"
-            onClick={handleCreateRoom}
-            className="create-room"
-          >
-            <img src={googleIconImg} alt="Logo do Google" />
-            Crie sua sala com o Google
-          </CreateRoomStyle>
-          <SeparatorStyle className="separator">
-            ou entre em uma sala
-          </SeparatorStyle>
-          <form onSubmit={handleJoinRoom}>
-            <input
-              type="text"
-              placeholder="Digite o código da sala"
-              onChange={(event) => setRoomCode(event.target.value)}
-              value={roomCode}
-            />
-            <Button type="submit">Entrar na sala</Button>
-          </form>
-        </MainContentStyle>
+        <ToggleStyle>
+          <Switch
+            onChange={() => {}}
+            checked={false}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+            boxShadow="1px 1px 4px black"
+            offColor={colors.primary}
+            onColor={shade(0.15, colors.secundary)}
+          />
+        </ToggleStyle>
+        <MainDivStyle>
+          <MainContentStyle className="main-content">
+            <img src={logoImg} alt="Let Me Ask logo" />
+            <CreateRoomStyle
+              type="button"
+              onClick={handleCreateRoom}
+              className="create-room"
+            >
+              <img src={googleIconImg} alt="Logo do Google" />
+              Crie sua sala com o Google
+            </CreateRoomStyle>
+            <SeparatorStyle className="separator">
+              ou entre em uma sala
+            </SeparatorStyle>
+            <form onSubmit={handleJoinRoom}>
+              <input
+                type="text"
+                placeholder="Digite o código da sala"
+                onChange={(event) => setRoomCode(event.target.value)}
+                value={roomCode}
+              />
+              <Button type="submit">Entrar na sala</Button>
+            </form>
+          </MainContentStyle>
+        </MainDivStyle>
       </MainStyle>
     </PageAuthStyle>
   )

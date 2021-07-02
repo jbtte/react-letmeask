@@ -9,8 +9,8 @@ export const PageAuthStyle = styled.div`
 export const AsideStyle = styled.aside`
   flex: 7;
 
-  background: #835afd;
-  color: #fff;
+  background: ${(props) => props.theme.colors.secundary};
+  color: ${(props) => props.theme.colors.secondaryText};
 
   display: flex;
   flex-direction: column;
@@ -32,14 +32,28 @@ export const AsideStyle = styled.aside`
     font-size: 24px;
     line-height: 32px;
     margin-top: 16px;
-    color: #f8f8f8;
+    color: ${(props) => props.theme.colors.secondaryText};
   }
+`
+
+export const ToggleStyle = styled.div`
+  display: flex;
+  padding: 12px;
+  justify-content: flex-end;
+  flex: 1;
 `
 
 export const MainStyle = styled.main`
   flex: 8;
   padding: 0 32px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+export const MainDivStyle = styled.div`
+  display: flex;
+  flex: 20;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `
@@ -51,6 +65,7 @@ export const MainContentStyle = styled.div`
   max-width: 320px;
   align-items: stretch;
   text-align: center;
+  padding: 100 auto;
 
   > img {
     align-self: center;
@@ -67,7 +82,7 @@ export const MainContentStyle = styled.div`
       height: 50px;
       border-radius: 8px;
       padding: 0 16px;
-      background: #fff;
+      background: ${(props) => props.theme.colors.background};
       border: 1px solid #a8a8b3;
     }
 
@@ -83,7 +98,7 @@ export const MainContentStyle = styled.div`
 
   p {
     font-size: 14px;
-    color: #737380;
+    color: ${(props) => props.theme.colors.text};
     margin-top: 16px;
 
     a {
@@ -93,30 +108,29 @@ export const MainContentStyle = styled.div`
 `
 
 export const CreateRoomStyle = styled.button`
-margin-top: 64px;
-height: 50px;
-border-radius: 8px;
-font-weight: 500;
-background: #ea4335;
-color: #fff;
+  margin-top: 64px;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: #ea4335;
+  color: ${(props) => props.theme.colors.secondaryText};
 
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-cursor: pointer;
-border: 0;
+  cursor: pointer;
+  border: 0;
 
-transition: filter 0.2s;
+  transition: filter 0.2s;
 
-img {
-  margin-right: 8px;
-}
+  img {
+    margin-right: 8px;
+  }
 
-&:hover {
-  filter: brightness(0.9);
-}
-}
+  &:hover {
+    filter: brightness(0.9);
+  }
 `
 
 export const SeparatorStyle = styled.div`
@@ -141,4 +155,5 @@ export const SeparatorStyle = styled.div`
     height: 1px;
     margin-left: 16px;
     background: #a8a8b3;
+  }
 `

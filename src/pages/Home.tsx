@@ -23,18 +23,19 @@ import {
 } from "../styles/auth"
 
 import { database } from "../services/firebase"
+import { ToggleContext } from "../contexts/toogleContext"
 
 export function Home() {
   const history = useHistory()
   const { user, signInWithGoogle } = useAuth()
   const [roomCode, setRoomCode] = useState("")
   const { colors } = useContext(ThemeContext)
+  const { toggleTheme, checked } = useContext(ToggleContext)
 
   async function handleCreateRoom() {
     if (!user) {
       await signInWithGoogle()
     }
-
     history.push("/rooms/new")
   }
 
@@ -72,8 +73,8 @@ export function Home() {
       <MainStyle className="main">
         <ToggleStyle>
           <Switch
-            onChange={() => {}}
-            checked={false}
+            onChange={toggleTheme}
+            checked={checked}
             checkedIcon={false}
             uncheckedIcon={false}
             height={10}

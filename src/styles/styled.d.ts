@@ -8,6 +8,7 @@ declare module "styled-components" {
       primary: string
       secundary: string
       background: string
+      backgroundSecondary: string
       text: string
       secondaryText: string
     }

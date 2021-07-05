@@ -49,6 +49,7 @@ export const MainStyle = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: ${(props) => props.theme.colors.background};
 `
 export const MainDivStyle = styled.div`
   display: flex;
